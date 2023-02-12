@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController1 : MonoBehaviour
+public class PlayerController2 : MonoBehaviour
 {
     //public Rigidbody2D rigidbody;
     private BoxCollider2D boxCollider;
@@ -31,11 +31,11 @@ public class PlayerController1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputs[0] = KeyCode.A;
-        inputs[1] = KeyCode.S;
-        inputs[2] = KeyCode.D;
-        inputs[3] = KeyCode.W;
-        inputs[4] = KeyCode.Space;
+        inputs[0] = KeyCode.LeftArrow;
+        inputs[1] = KeyCode.DownArrow;
+        inputs[2] = KeyCode.RightArrow;
+        inputs[3] = KeyCode.UpArrow;
+        inputs[4] = KeyCode.P;
 
 
         /*inputs[0] = test;

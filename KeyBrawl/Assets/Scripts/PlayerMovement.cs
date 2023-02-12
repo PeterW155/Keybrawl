@@ -15,16 +15,18 @@ public class PlayerMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-	  float y = Input.GetAxisRaw("Vertical");
-	   
-	  moveDelta = new Vector3(x,y,0);
+      float x = Input.GetAxisRaw("Horizontal");
+      float y = Input.GetAxisRaw("Vertical");
 
-	  if (moveDelta.x > 0)
+
+	  moveDelta = new Vector3(x,y,0);
+        Debug.Log(moveDelta);
+
+	  /*if (moveDelta.x > 0)
 		transform.localScale = Vector3.one;
 	  else if (moveDelta.x < 0)
 		transform.localScale = new Vector3(-1,1,1);
-
+      */
 	  transform.Translate(moveDelta * Time.deltaTime);
     }
 }
