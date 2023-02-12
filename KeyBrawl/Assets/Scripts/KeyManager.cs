@@ -15,13 +15,65 @@ public class KeyManager : MonoBehaviour
 {
 
     public Key[] keys;
+    public KeyCode[] keyCodes;
+    private KeyCode[] usedKeys;
+
+    private void Awake()
+    {
+        keys = new Key[30];
+        keyCodes = new KeyCode[31];
+        usedKeys = new KeyCode[11];
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        keys = new Key[30];
-        
-        keys[0].key = KeyCode.Q;
+
+        keyCodes[0] = KeyCode.Q;
+        keyCodes[1] = KeyCode.W;
+        keyCodes[2] = KeyCode.E;
+        keyCodes[3] = KeyCode.R;
+        keyCodes[4] = KeyCode.T;
+        keyCodes[5] = KeyCode.Y;
+        keyCodes[6] = KeyCode.U;
+        keyCodes[7] = KeyCode.I;
+        keyCodes[8] = KeyCode.O;
+        keyCodes[9] = KeyCode.P;
+        keyCodes[10] = KeyCode.A;
+        keyCodes[11] = KeyCode.S;
+        keyCodes[12] = KeyCode.D;
+        keyCodes[13] = KeyCode.F;
+        keyCodes[14] = KeyCode.G;
+        keyCodes[15] = KeyCode.H;
+        keyCodes[16] = KeyCode.J;
+        keyCodes[17] = KeyCode.K;
+        keyCodes[18] = KeyCode.L;
+        keyCodes[19] = KeyCode.Z;
+        keyCodes[20] = KeyCode.X;
+        keyCodes[21] = KeyCode.C;
+        keyCodes[22] = KeyCode.V;
+        keyCodes[23] = KeyCode.B;
+        keyCodes[24] = KeyCode.N;
+        keyCodes[25] = KeyCode.M;
+        keyCodes[26] = KeyCode.LeftArrow;
+        keyCodes[27] = KeyCode.RightArrow;
+        keyCodes[28] = KeyCode.UpArrow;
+        keyCodes[29] = KeyCode.DownArrow;
+        keyCodes[30] = KeyCode.Space;
+
+        usedKeys[0] = KeyCode.A;
+        usedKeys[1] = KeyCode.S;
+        usedKeys[2] = KeyCode.D;
+        usedKeys[3] = KeyCode.W;
+        usedKeys[4] = KeyCode.Space;
+        usedKeys[5] = KeyCode.LeftArrow;
+        usedKeys[6] = KeyCode.RightArrow;
+        usedKeys[7] = KeyCode.UpArrow;
+        usedKeys[8] = KeyCode.DownArrow;
+        usedKeys[9] = KeyCode.P;
+
+
+        /*keys[1].key = KeyCode.Q;
         keys[0].keyName = "Q";
         keys[0].isOpen = false;
 
@@ -143,7 +195,7 @@ public class KeyManager : MonoBehaviour
 
         keys[30].key = KeyCode.Space;
         keys[30].keyName = "Space";
-        keys[30].isOpen = true;
+        keys[30].isOpen = true;*/
     }
 
     // Update is called once per frame
@@ -152,24 +204,23 @@ public class KeyManager : MonoBehaviour
         
     }
 
-    public Key GetNewKey(Key current)
+    public KeyCode GetNewKey(KeyCode current)
     {
-        for(int i = 0; i<=30; i++)
-        {
-            if(keys[i].key == current.key)
-            {
-                keys[i].isOpen = true;
-            }
-        }
-        while (true)
+        bool cont = true;
+        KeyCode ret = KeyCode.LeftAlt;
+        while (cont)
         {
             int rand = Random.Range(0, 30);
-            if (keys[rand].isOpen)
+            int pos = System.Array.IndexOf(usedKeys, keyCodes[rand]);
+            if (pos == -1)
             {
-                return keys[rand];
+                cont = false;
+                ret = keyCodes[rand];
+                usedKeys[System.Array.IndexOf(usedKeys, current)] = ret;
             }
         }
-        
 
+
+        return ret;
     }
 }
