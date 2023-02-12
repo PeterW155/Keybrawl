@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4145111355480806697}
   - component: {fileID: 6836303573029892006}
   - component: {fileID: 1514450237234827683}
-  - component: {fileID: 8437504975350498375}
+  - component: {fileID: -2741859289212721556}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: bullet 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
---- !u!114 &8437504975350498375
+--- !u!114 &-2741859289212721556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,5 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f816bc6ea40aaa94bb84e4dd796a490f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 0
   rb: {fileID: 0}
