@@ -8,6 +8,9 @@ public class PlayerController2 : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Vector3 moveDelta;
 
+    public Transform shootingPoint;
+    public GameObject bulletPrefab;
+
     //public Key[] inputs;
     public KeyCode[] inputs;
     public KeyManager keyManager;
@@ -17,7 +20,6 @@ public class PlayerController2 : MonoBehaviour
     public int health;
     //public float inputHorizonatl;
     //public float inputVertical;
-    private Key test;
 
     float x;
     float y;
@@ -79,6 +81,7 @@ public class PlayerController2 : MonoBehaviour
         }
         if (Input.GetKeyDown(inputs[4]))
         {
+            Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
             Debug.Log("Pressed " + inputs[4].ToString());
             inputs[4] = keyManager.GetNewKey(inputs[4]);
         }
