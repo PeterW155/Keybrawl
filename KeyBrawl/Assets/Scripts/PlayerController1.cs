@@ -25,6 +25,9 @@ public class PlayerController1 : MonoBehaviour
     float x;
     float y;
 
+    private int ammo = 0;
+    public int maxAmmo;
+
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -67,7 +70,12 @@ public class PlayerController1 : MonoBehaviour
         {
             Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
             Debug.Log("Pressed " + inputs[4].ToString());
-            inputs[4] = keyManager.GetNewKey(inputs[4]);
+            ammo = ammo + 1;
+            if(ammo >= maxAmmo)
+            {
+                inputs[4] = keyManager.GetNewKey(inputs[4]);
+                ammo = 0;
+            }
             display.text = inputs[4].ToString();
         }
 
